@@ -1,0 +1,358 @@
+{
+  "version": "2026-10-15",
+  "methode": "C.R.O.F. : Contexte, Rôle, Objectif, Format",
+  "mode_emploi": "Remplacez les [crochets], collez vos données entre délimiteurs ###, testez, puis itérez une fois. Ne collez jamais de données personnelles ou confidentielles dans un outil non validé par votre entreprise.",
+  "prompts": [
+    {
+      "id": 1,
+      "slug": "01-rh-fiche-de-poste",
+      "domaine": "Ressources humaines",
+      "titre": "Fiche de poste",
+      "prompt": "Tu es DRH d'une PME de [secteur]. Rédige une fiche de poste pour [intitulé] : missions (5 max), compétences requises et souhaitées, conditions, phrase d'accroche inclusive. 250 mots, ton professionnel et engageant.",
+      "crof": {
+        "contexte": "PME de [secteur]",
+        "role": "DRH",
+        "objectif": "Rédiger une fiche de poste pour [intitulé]",
+        "format": "Missions (5 max), compétences requises/souhaitées, conditions, accroche inclusive ; 250 mots ; ton professionnel et engageant"
+      },
+      "variables": [
+        "secteur",
+        "intitulé"
+      ],
+      "verifier": "Les missions sont-elles réalistes pour le poste ? L'accroche évite-t-elle les formulations genrées ?"
+    },
+    {
+      "id": 2,
+      "slug": "02-rh-grille-entretien",
+      "domaine": "Ressources humaines",
+      "titre": "Grille d'entretien",
+      "prompt": "Prépare 8 questions d'entretien pour un poste de [X], dont 3 situationnelles. Pour chaque question, indique ce qu'une bonne réponse doit contenir et un signal d'alerte. Format : tableau.",
+      "crof": {
+        "contexte": "Recrutement pour un poste de [X]",
+        "role": "Implicite (recruteur) — à préciser si besoin",
+        "objectif": "Préparer 8 questions d'entretien dont 3 situationnelles",
+        "format": "Tableau : question / contenu attendu / signal d'alerte"
+      },
+      "variables": [
+        "X"
+      ],
+      "verifier": "Aucune question discriminatoire (âge, situation familiale, santé, origine) ?"
+    },
+    {
+      "id": 3,
+      "slug": "03-marketing-post-linkedin",
+      "domaine": "Marketing & Communication",
+      "titre": "Post LinkedIn ×3",
+      "prompt": "Tu es responsable communication de [marque]. Rédige 3 variantes d'un post LinkedIn annonçant [actualité] : factuelle, storytelling, question d'ouverture. 120 mots max chacune, 3 hashtags, pas d'emoji.",
+      "crof": {
+        "contexte": "Annonce de [actualité] pour [marque]",
+        "role": "Responsable communication",
+        "objectif": "Rédiger 3 variantes d'un post LinkedIn",
+        "format": "3 angles (factuel, storytelling, question) ; 120 mots max ; 3 hashtags ; pas d'emoji"
+      },
+      "variables": [
+        "marque",
+        "actualité"
+      ],
+      "verifier": "Les faits annoncés sont-ils exacts ? Le ton correspond-il à la charte de la marque ?"
+    },
+    {
+      "id": 4,
+      "slug": "04-marketing-newsletter",
+      "domaine": "Marketing & Communication",
+      "titre": "Newsletter",
+      "prompt": "À partir de ces 3 actualités ### [coller] ###, rédige la newsletter mensuelle : objet (≤ 50 caractères), intro de 2 phrases, 3 blocs de 60 mots avec appel à l'action. Ton : [chaleureux].",
+      "crof": {
+        "contexte": "3 actualités fournies entre délimiteurs",
+        "role": "Implicite (rédacteur de la newsletter)",
+        "objectif": "Rédiger la newsletter mensuelle",
+        "format": "Objet ≤ 50 caractères ; intro 2 phrases ; 3 blocs de 60 mots avec appel à l'action ; ton [chaleureux]"
+      },
+      "variables": [
+        "coller",
+        "chaleureux"
+      ],
+      "verifier": "Chaque bloc reprend-il fidèlement l'actualité source ? Les appels à l'action pointent-ils vers des liens existants ?"
+    },
+    {
+      "id": 5,
+      "slug": "05-vente-email-prospection",
+      "domaine": "Vente & Commercial",
+      "titre": "E-mail de prospection",
+      "prompt": "Tu es commercial B2B. Rédige un e-mail de prospection à [fonction] chez [type d'entreprise] pour [offre]. Accroche personnalisée sur [enjeu du prospect], 1 bénéfice chiffré, 1 question finale. 90 mots max.",
+      "crof": {
+        "contexte": "Prospection de [fonction] chez [type d'entreprise], enjeu : [enjeu du prospect]",
+        "role": "Commercial B2B",
+        "objectif": "Rédiger un e-mail de prospection pour [offre]",
+        "format": "Accroche personnalisée ; 1 bénéfice chiffré ; 1 question finale ; 90 mots max"
+      },
+      "variables": [
+        "fonction",
+        "type d'entreprise",
+        "offre",
+        "enjeu du prospect"
+      ],
+      "verifier": "Le bénéfice chiffré est-il réel et sourçable ? Pas de promesse que l'offre ne tient pas ?"
+    },
+    {
+      "id": 6,
+      "slug": "06-vente-objections",
+      "domaine": "Vente & Commercial",
+      "titre": "Traitement des objections",
+      "prompt": "Liste les 6 objections les plus probables d'un [prospect] face à [offre]. Pour chacune : une réponse en 2 phrases et une question de relance. Format : tableau.",
+      "crof": {
+        "contexte": "[prospect] face à [offre]",
+        "role": "Implicite (commercial expérimenté) — à préciser si besoin",
+        "objectif": "Anticiper 6 objections et préparer les réponses",
+        "format": "Tableau : objection / réponse en 2 phrases / question de relance"
+      },
+      "variables": [
+        "prospect",
+        "offre"
+      ],
+      "verifier": "Les réponses restent-elles honnêtes sur les limites de l'offre ?"
+    },
+    {
+      "id": 7,
+      "slug": "07-finance-analyse-ecarts",
+      "domaine": "Finance & Gestion",
+      "titre": "Analyse d'écarts",
+      "prompt": "Voici un tableau de charges N et N-1 ### [coller] ###. Identifie les 5 postes en plus forte hausse, explique les causes possibles, propose 3 actions. Tableau chiffré puis synthèse de 100 mots pour la direction.",
+      "crof": {
+        "contexte": "Tableau de charges N et N-1 fourni entre délimiteurs",
+        "role": "Implicite (contrôleur de gestion)",
+        "objectif": "Identifier les 5 postes en plus forte hausse, expliquer, proposer 3 actions",
+        "format": "Tableau chiffré puis synthèse de 100 mots pour la direction"
+      },
+      "variables": [
+        "coller"
+      ],
+      "verifier": "Recalculer les 5 écarts à la main ou avec l'exécution de code : l'IA se trompe parfois sur les pourcentages. Données anonymisées uniquement."
+    },
+    {
+      "id": 8,
+      "slug": "08-finance-formule-excel",
+      "domaine": "Finance & Gestion",
+      "titre": "Formule Excel",
+      "prompt": "Explique pas à pas comment construire dans Excel une formule qui [objectif], avec un exemple sur ces données ### [coller] ###. Donne la formule finale, ses limites et une alternative.",
+      "crof": {
+        "contexte": "Données d'exemple fournies entre délimiteurs",
+        "role": "Implicite (expert Excel)",
+        "objectif": "Construire une formule qui [objectif]",
+        "format": "Explication pas à pas ; formule finale ; limites ; alternative"
+      },
+      "variables": [
+        "objectif",
+        "coller"
+      ],
+      "verifier": "Tester la formule sur les données d'exemple avant de la généraliser ; vérifier la version d'Excel (fonctions récentes)."
+    },
+    {
+      "id": 9,
+      "slug": "09-support-reclamation",
+      "domaine": "Support client",
+      "titre": "Réponse à une réclamation",
+      "prompt": "Tu es conseiller clientèle de [entreprise]. Réponds à cette réclamation ### [coller] ### : empathie, reformulation du problème, solution concrète, délai, formule de politesse. 120 mots, vouvoiement, sans jargon.",
+      "crof": {
+        "contexte": "Réclamation client fournie entre délimiteurs, pour [entreprise]",
+        "role": "Conseiller clientèle",
+        "objectif": "Répondre à la réclamation",
+        "format": "Empathie, reformulation, solution, délai, politesse ; 120 mots ; vouvoiement ; sans jargon"
+      },
+      "variables": [
+        "entreprise",
+        "coller"
+      ],
+      "verifier": "La solution et le délai proposés sont-ils tenables ? Anonymiser la réclamation avant de la coller."
+    },
+    {
+      "id": 10,
+      "slug": "10-support-faq-tickets",
+      "domaine": "Support client",
+      "titre": "FAQ à partir de tickets",
+      "prompt": "À partir de ces 20 tickets ### [coller] ###, regroupe les questions par thème, rédige une FAQ de 10 entrées (question + réponse de 40 mots) et signale les questions sans réponse claire.",
+      "crof": {
+        "contexte": "20 tickets de support fournis entre délimiteurs",
+        "role": "Implicite (responsable support)",
+        "objectif": "Produire une FAQ de 10 entrées et signaler les questions ouvertes",
+        "format": "Regroupement par thème ; 10 entrées question + réponse de 40 mots ; liste des questions sans réponse"
+      },
+      "variables": [
+        "coller"
+      ],
+      "verifier": "Chaque réponse de FAQ est-elle validée par le métier ? Les tickets sont-ils anonymisés ?"
+    },
+    {
+      "id": 11,
+      "slug": "11-management-compte-rendu",
+      "domaine": "Management & Projet",
+      "titre": "Compte rendu de réunion",
+      "prompt": "Voici mes notes de réunion ### [coller] ###. Rédige un compte rendu : décisions, actions en tableau (qui / quoi / quand), points ouverts. 200 mots max. Signale les ambiguïtés plutôt que de les trancher.",
+      "crof": {
+        "contexte": "Notes brutes de réunion fournies entre délimiteurs",
+        "role": "Implicite (assistant de direction)",
+        "objectif": "Rédiger un compte rendu structuré",
+        "format": "Décisions ; actions en tableau qui/quoi/quand ; points ouverts ; 200 mots max ; garde-fou sur les ambiguïtés"
+      },
+      "variables": [
+        "coller"
+      ],
+      "verifier": "Relire les actions attribuées : l'IA peut attribuer une tâche à la mauvaise personne si les notes sont elliptiques."
+    },
+    {
+      "id": 12,
+      "slug": "12-management-plan-projet",
+      "domaine": "Management & Projet",
+      "titre": "Plan de projet",
+      "prompt": "Tu es chef de projet. Découpe [projet] en phases et jalons sur [durée], avec pour chaque phase : livrable, risque majeur et parade. Format : tableau, puis les 3 décisions à prendre cette semaine.",
+      "crof": {
+        "contexte": "[projet] à réaliser sur [durée]",
+        "role": "Chef de projet",
+        "objectif": "Découper en phases et jalons",
+        "format": "Tableau phase / livrable / risque / parade ; puis 3 décisions de la semaine"
+      },
+      "variables": [
+        "projet",
+        "durée"
+      ],
+      "verifier": "Les durées par phase sont-elles cohérentes avec vos ressources réelles ?"
+    },
+    {
+      "id": 13,
+      "slug": "13-juridique-vulgarisation-clause",
+      "domaine": "Juridique & Conformité",
+      "titre": "Vulgarisation d'une clause",
+      "prompt": "Explique cette clause ### [coller] ### à un non-juriste en 5 points, puis liste 3 questions à poser à un avocat. Ne donne pas de conseil définitif ; signale explicitement les points incertains.",
+      "crof": {
+        "contexte": "Clause contractuelle fournie entre délimiteurs",
+        "role": "Implicite (juriste pédagogue)",
+        "objectif": "Expliquer la clause à un non-juriste",
+        "format": "5 points ; 3 questions pour un avocat ; pas de conseil définitif ; points incertains signalés"
+      },
+      "variables": [
+        "coller"
+      ],
+      "verifier": "L'IA ne remplace pas un avis juridique. Vérifier toute référence à un article de loi cité."
+    },
+    {
+      "id": 14,
+      "slug": "14-juridique-checklist-rgpd",
+      "domaine": "Juridique & Conformité",
+      "titre": "Check-list RGPD",
+      "prompt": "Pour un projet de [description], établis une check-list RGPD de 10 points (base légale, minimisation, durée de conservation, droits des personnes, sous-traitants…). Pour chaque point : oui / non / à vérifier.",
+      "crof": {
+        "contexte": "Projet de [description]",
+        "role": "Implicite (DPO)",
+        "objectif": "Établir une check-list RGPD",
+        "format": "10 points ; pour chacun oui / non / à vérifier"
+      },
+      "variables": [
+        "description"
+      ],
+      "verifier": "Faire valider la check-list par le DPO ou le juriste de l'entreprise."
+    },
+    {
+      "id": 15,
+      "slug": "15-data-exploration",
+      "domaine": "Data & Analyse",
+      "titre": "Exploration de données",
+      "prompt": "Voici un extrait CSV ### [coller] ###. Décris la structure, détecte anomalies et valeurs manquantes, propose 3 analyses pertinentes et écris le code Python (pandas) de la première.",
+      "crof": {
+        "contexte": "Extrait CSV fourni entre délimiteurs",
+        "role": "Implicite (data analyst)",
+        "objectif": "Décrire, détecter les anomalies, proposer 3 analyses, coder la première",
+        "format": "Description ; anomalies et valeurs manquantes ; 3 analyses ; code pandas"
+      },
+      "variables": [
+        "coller"
+      ],
+      "verifier": "Exécuter le code sur l'extrait avant de le lancer sur le jeu complet. Données anonymisées uniquement."
+    },
+    {
+      "id": 16,
+      "slug": "16-data-messages-comex",
+      "domaine": "Data & Analyse",
+      "titre": "Messages clés pour le COMEX",
+      "prompt": "Transforme ces résultats ### [coller] ### en 3 messages clés pour un COMEX, chacun avec le chiffre qui le prouve et une recommandation. Propose le graphique adapté à chacun.",
+      "crof": {
+        "contexte": "Résultats d'analyse fournis entre délimiteurs",
+        "role": "Implicite (analyste présentant au COMEX)",
+        "objectif": "Transformer les résultats en 3 messages clés",
+        "format": "3 messages ; chiffre preuve ; recommandation ; type de graphique"
+      },
+      "variables": [
+        "coller"
+      ],
+      "verifier": "Chaque chiffre cité provient-il bien des résultats collés, sans arrondi trompeur ?"
+    },
+    {
+      "id": 17,
+      "slug": "17-formation-module",
+      "domaine": "Formation & Pédagogie",
+      "titre": "Module de formation",
+      "prompt": "Tu es ingénieur pédagogique. Conçois un module de 2 h sur [sujet] pour [public] : objectifs (verbes d'action), séquence minutée, 1 activité pratique, 5 questions de quiz avec réponses.",
+      "crof": {
+        "contexte": "Module de 2 h sur [sujet] pour [public]",
+        "role": "Ingénieur pédagogique",
+        "objectif": "Concevoir le module",
+        "format": "Objectifs en verbes d'action ; séquence minutée ; 1 activité ; 5 questions de quiz avec réponses"
+      },
+      "variables": [
+        "sujet",
+        "public"
+      ],
+      "verifier": "Les réponses du quiz sont-elles exactes ? Le minutage tient-il en 2 h avec les transitions ?"
+    },
+    {
+      "id": 18,
+      "slug": "18-formation-flashcards",
+      "domaine": "Formation & Pédagogie",
+      "titre": "Flashcards",
+      "prompt": "Crée 10 flashcards sur [sujet] : question au recto, réponse en 2 phrases au verso, du plus simple au plus difficile. Format : tableau à 2 colonnes.",
+      "crof": {
+        "contexte": "[sujet] à réviser",
+        "role": "Implicite (formateur)",
+        "objectif": "Créer 10 flashcards progressives",
+        "format": "Tableau 2 colonnes recto / verso ; réponse en 2 phrases ; difficulté croissante"
+      },
+      "variables": [
+        "sujet"
+      ],
+      "verifier": "Vérifier chaque réponse : une flashcard fausse s'apprend aussi bien qu'une vraie."
+    },
+    {
+      "id": 19,
+      "slug": "19-it-revue-de-code",
+      "domaine": "IT & Développement",
+      "titre": "Revue de code",
+      "prompt": "Revue de code : voici une fonction ### [coller] ###. Relève bugs, failles de sécurité et problèmes de lisibilité, par ordre de gravité. Propose la version corrigée avec commentaires et un test unitaire.",
+      "crof": {
+        "contexte": "Fonction fournie entre délimiteurs",
+        "role": "Implicite (relecteur senior)",
+        "objectif": "Relever bugs, failles et problèmes de lisibilité",
+        "format": "Par ordre de gravité ; version corrigée commentée ; un test unitaire"
+      },
+      "variables": [
+        "coller"
+      ],
+      "verifier": "Exécuter le test proposé. Jamais de secrets (clés, mots de passe) dans le code collé."
+    },
+    {
+      "id": 20,
+      "slug": "20-it-procedure-utilisateur",
+      "domaine": "IT & Développement",
+      "titre": "Procédure utilisateur",
+      "prompt": "Rédige une procédure de [tâche IT] pour un utilisateur non technique : prérequis, étapes numérotées (15 max) avec captures à prévoir, erreurs fréquentes et solutions.",
+      "crof": {
+        "contexte": "[tâche IT] à documenter pour un public non technique",
+        "role": "Implicite (rédacteur technique)",
+        "objectif": "Rédiger la procédure",
+        "format": "Prérequis ; 15 étapes max ; captures à prévoir ; erreurs fréquentes et solutions"
+      },
+      "variables": [
+        "tâche IT"
+      ],
+      "verifier": "Dérouler la procédure sur un poste réel : les menus et libellés changent selon les versions."
+    }
+  ]
+}

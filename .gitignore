@@ -1,0 +1,11 @@
+# Système
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/
+.idea/
+
+# Secrets : jamais de clé d'API dans ce dépôt
+.env
+.env.*
